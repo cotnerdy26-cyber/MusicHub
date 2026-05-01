@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reviews — Soundwave</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero { padding:160px 48px 80px; border-bottom:1px solid var(--border); }
+    .page-hero .eyebrow-mono { margin-bottom:12px; }
+    .page-hero h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(4rem,9vw,7rem); letter-spacing:0.04em; line-height:0.95; margin-bottom:20px; }
+    .page-hero p { color:var(--muted); max-width:500px; font-size:1.05rem; }
+    .reviews-content { padding:80px 48px; }
+    .reviews-section-title { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:0.06em; margin-bottom:28px; display:flex; align-items:center; gap:14px; }
+    .reviews-section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+    .reviews-big-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:24px; margin-bottom:64px; }
+    .big-review-card { border-radius:var(--radius); border:1.5px solid var(--border); background:var(--surface); overflow:hidden; text-decoration:none; color:inherit; display:block; transition:transform var(--transition),border-color var(--transition); }
+    .big-review-card:hover { transform:translateY(-5px); border-color:rgba(255,255,255,0.2); }
+    .review-banner { height:100px; display:flex; align-items:center; justify-content:center; font-size:3rem; }
+    .review-body { padding:24px; }
+    .rb-album { font-weight:700; font-size:1.1rem; margin-bottom:2px; }
+    .rb-artist { font-size:0.85rem; color:var(--muted); margin-bottom:8px; }
+    .rb-genre { font-family:'Space Mono',monospace; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); margin-bottom:12px; display:block; }
+    .rb-stars { font-size:1.1rem; color:var(--accent); letter-spacing:2px; margin-bottom:10px; }
+    .rb-text { font-size:0.88rem; color:var(--muted); line-height:1.6; margin-bottom:14px; }
+    .rb-meta { font-family:'Space Mono',monospace; font-size:0.65rem; color:var(--muted); }
+    .song-reviews-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+    .song-review-card { padding:22px; border-radius:var(--radius-sm); border:1.5px solid var(--border); background:var(--surface); text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:8px; transition:border-color var(--transition),transform var(--transition); }
+    .song-review-card:hover { transform:translateY(-3px); border-color:rgba(255,255,255,0.2); }
+    .sr-title { font-weight:700; font-size:0.98rem; }
+    .sr-artist { font-size:0.82rem; color:var(--muted); }
+    .sr-stars { font-size:0.9rem; color:var(--accent); letter-spacing:1px; }
+    .sr-text { font-size:0.83rem; color:var(--muted); line-height:1.5; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">Soundwave</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="discover.html">Discover</a></li>
+      <li><a href="genres.html">Genres</a></li>
+      <li><a href="artists.html">Artists</a></li>
+      <li><a href="playlists.html">Playlists</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="reviews.html" class="active">Reviews</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="page-hero">
+    <p class="eyebrow-mono">Album Reviews · Song Reviews</p>
+    <h1>Reviews</h1>
+    <p>In-depth reviews of the albums and songs shaping music right now — rated, analyzed, and written for music fans.</p>
+  </div>
+  <div class="reviews-content">
+    <div class="reviews-section-title">Album Reviews</div>
+    <div class="reviews-big-grid">
+      <a href="#r1" class="big-review-card" id="r1">
+        <div class="review-banner" style="background:linear-gradient(135deg,#ff4f91,#ffa347);">♪</div>
+        <div class="review-body">
+          <div class="rb-album">Short n' Sweet</div>
+          <div class="rb-artist">Sabrina Carpenter</div>
+          <span class="rb-genre">Pop</span>
+          <div class="rb-stars">★★★★★</div>
+          <p class="rb-text">A flawless pop record that balances humor, heartbreak, and hooks with effortless charm. Every track earns its place, and Carpenter's voice has never sounded better. A defining pop album of the decade so far.</p>
+          <div class="rb-meta">Reviewed March 22, 2026</div>
+        </div>
+      </a>
+      <a href="#r2" class="big-review-card" id="r2">
+        <div class="review-banner" style="background:linear-gradient(135deg,#4faaff,#8b5cf6);">♪</div>
+        <div class="review-body">
+          <div class="rb-album">GNX</div>
+          <div class="rb-artist">Kendrick Lamar</div>
+          <span class="rb-genre">Hip-Hop</span>
+          <div class="rb-stars">★★★★★</div>
+          <p class="rb-text">Dense, defiant, and deeply personal — Kendrick at his most unfiltered and most brilliant. GNX strips away the concept-album scaffolding to deliver a raw, focused statement from the generation's best rapper.</p>
+          <div class="rb-meta">Reviewed March 15, 2026</div>
+        </div>
+      </a>
+      <a href="#r3" class="big-review-card" id="r3">
+        <div class="review-banner" style="background:linear-gradient(135deg,#e8ff47,#4faaff);">♪</div>
+        <div class="review-body">
+          <div class="rb-album">Radical Optimism</div>
+          <div class="rb-artist">Dua Lipa</div>
+          <span class="rb-genre">Pop / Dance</span>
+          <div class="rb-stars">★★★★☆</div>
+          <p class="rb-text">A sun-drenched disco-pop journey that dares you not to dance. Dua Lipa continues to perfect her lane with polished production and an infectious energy that carries the album from start to finish.</p>
+          <div class="rb-meta">Reviewed March 10, 2026</div>
+        </div>
+      </a>
+      <a href="#r4" class="big-review-card" id="r4">
+        <div class="review-banner" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">♪</div>
+        <div class="review-body">
+          <div class="rb-album">Stick Season (We'll All Be Here Forever)</div>
+          <div class="rb-artist">Noah Kahan</div>
+          <span class="rb-genre">Folk / Indie</span>
+          <div class="rb-stars">★★★★★</div>
+          <p class="rb-text">The expanded edition deepens an already exceptional album. Kahan's writing is painfully honest and instantly universal — few artists can make a specific Vermont winter feel this relatable to the whole world.</p>
+          <div class="rb-meta">Reviewed March 5, 2026</div>
+        </div>
+      </a>
+    </div>
+    <div class="reviews-section-title">Song Reviews</div>
+    <div class="song-reviews-grid">
+      <a href="#" class="song-review-card">
+        <div class="sr-title">Espresso</div>
+        <div class="sr-artist">Sabrina Carpenter</div>
+        <div class="sr-stars">★★★★★</div>
+        <div class="sr-text">Two minutes and fifty-five seconds of pure pop perfection. The hook is inescapable, the production is immaculate, and the wit is razor-sharp.</div>
+      </a>
+      <a href="#" class="song-review-card">
+        <div class="sr-title">Not Like Us</div>
+        <div class="sr-artist">Kendrick Lamar</div>
+        <div class="sr-stars">★★★★★</div>
+        <div class="sr-text">A diss track that transcended the feud to become a cultural anthem. The West Coast production and Kendrick's precision make it an all-time classic of the genre.</div>
+      </a>
+      <a href="#" class="song-review-card">
+        <div class="sr-title">Good Luck, Babe!</div>
+        <div class="sr-artist">Chappell Roan</div>
+        <div class="sr-stars">★★★★☆</div>
+        <div class="sr-text">Theatrical, catchy, and lyrically bold. Chappell Roan packs a lifetime of longing into four minutes of glittering synth-pop drama.</div>
+      </a>
+      <a href="#" class="song-review-card">
+        <div class="sr-title">Birds of a Feather</div>
+        <div class="sr-artist">Billie Eilish</div>
+        <div class="sr-stars">★★★★☆</div>
+        <div class="sr-text">One of Billie's warmest songs yet — a gentle love song that strips away the darkness for something genuinely hopeful and beautifully understated.</div>
+      </a>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand"><span class="logo">Soundwave</span><p>Your hub for discovering music, artists, and the stories behind the songs.</p></div>
+      <div class="footer-links">
+        <div class="footer-col"><span class="footer-col-title">Explore</span><a href="discover.html">Discover</a><a href="genres.html">Genres</a><a href="artists.html">Artists</a><a href="playlists.html">Playlists</a></div>
+        <div class="footer-col"><span class="footer-col-title">Learn</span><a href="news.html">News</a><a href="reviews.html">Reviews</a><a href="history.html">History</a></div>
+        <div class="footer-col"><span class="footer-col-title">Connect</span><a href="community.html">Community</a><a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Soundwave · Dylan Cotner · DE Web Design</span><span>Built with HTML &amp; CSS</span></div>
+  </footer>
+</body>
+</html>

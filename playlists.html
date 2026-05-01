@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playlists — Soundwave</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero { padding:160px 48px 80px; border-bottom:1px solid var(--border); }
+    .page-hero .eyebrow-mono { margin-bottom:12px; }
+    .page-hero h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(4rem,9vw,7rem); letter-spacing:0.04em; line-height:0.95; margin-bottom:20px; }
+    .page-hero p { color:var(--muted); max-width:500px; font-size:1.05rem; }
+    .pl-section { padding:80px 48px; }
+    .pl-section + .pl-section { padding-top:0; }
+    .pl-section-title { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:0.06em; margin-bottom:28px; display:flex; align-items:center; gap:14px; }
+    .pl-section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+    .pl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:20px; }
+    .pl-card { border-radius:var(--radius); border:1.5px solid var(--border); background:var(--surface); overflow:hidden; text-decoration:none; color:inherit; display:block; transition:transform var(--transition),border-color var(--transition); }
+    .pl-card:hover { transform:translateY(-5px); border-color:rgba(255,255,255,0.2); }
+    .pl-cover { height:130px; display:flex; align-items:center; justify-content:center; font-size:3rem; }
+    .pl-info { padding:18px; }
+    .pl-name { font-weight:700; font-size:1rem; margin-bottom:4px; }
+    .pl-sub { font-size:0.82rem; color:var(--muted); margin-bottom:8px; }
+    .pl-count { font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">Soundwave</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="discover.html">Discover</a></li>
+      <li><a href="genres.html">Genres</a></li>
+      <li><a href="artists.html">Artists</a></li>
+      <li><a href="playlists.html" class="active">Playlists</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="page-hero">
+    <p class="eyebrow-mono">By Genre · By Mood · User-Created</p>
+    <h1>Playlists</h1>
+    <p>Curated collections for every vibe, moment, and mood. Find the perfect soundtrack for whatever you're doing.</p>
+  </div>
+  <div class="pl-section">
+    <div class="pl-section-title">🎸 By Genre</div>
+    <div class="pl-grid">
+      <a href="#" class="pl-card">
+        <div class="pl-cover" style="background:linear-gradient(135deg,#ff4f91,#ffa347);">🎤</div>
+        <div class="pl-info"><div class="pl-name">Pop Essentials</div><div class="pl-sub">The biggest pop hits of the last decade</div><div class="pl-count">48 songs</div></div>
+      </a>
+      <a href="#" class="pl-card">
+        <div class="pl-cover" style="background:linear-gradient(135deg,#7c3aed,#4faaff);">🎧</div>
+        <div class="pl-info"><div class="pl-name">Hip-Hop Classics</div><div class="pl-sub">Golden era to modern rap anthems</div><div class="pl-count">52 songs</div></div>
+      </a>
+      <a href="#" class="pl-card">
+        <div class="pl-cover" style="background:linear-gradient(135deg,#f97316,#dc2626);">🎸</div>
+        <div class="pl-info"><div class="pl-name">Rock Legends</div><div class="pl-sub">Guitar anthems across six decades</div><div class="pl-count">60 songs</div></div>
+      </a>
+      <a href="#" class="pl-card">
+        <div class="pl-cover" style="background:linear-gradient(135deg,#e8ff47,#06b6d4);">🎛️</div>
+        <div class="pl-info"><div class="pl-name">EDM Bangers</div><div class="pl-sub">Festival floor essentials</div><div class="pl-count">35 songs</div></div>
+      </a>
+    </div>
+  </div>
+  <div class="pl-section section-dark">
+    <div class="pl-section-title">🌙 By Mood</div>
+    <div class="pl-grid">
+      <a href="#" class="pl-card">
+        <div class="pl-cover" style="background:linear-gradient(135deg,#1e3a5f,#2563eb);">☁️</div>
+        <div class="pl-info"><div class="pl-name">Late Night Drive</div><div class="pl-sub">Atmospheric sounds for after midnight</div><div class="pl-count">30 songs</div></div>
+      </a>
+      <a href="#" class="pl-card">
+        <div class="pl-cover" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">☀️</div>
+        <div class="pl-info"><div class="pl-name">Summer Energy</div><div class="pl-sub">Feel-good anthems for warm days</div><div class="pl-count">40 songs</div></div>
+      </a>
+      <a href="#" class="pl-card">
+        <div class="pl-cover" style="background:linear-gradient(135deg,#6b7280,#374151);">🍂</div>
+        <div class="pl-info"><div class="pl-name">Cozy Autumn</div><div class="pl-sub">Indie folk and soft acoustic vibes</div><div class="pl-count">28 songs</div></div>
+      </a>
+      <a href="#" class="pl-card">
+        <div class="pl-cover" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);">💜</div>
+        <div class="pl-info"><div class="pl-name">Heartbreak Hits</div><div class="pl-sub">Songs that understand the feeling</div><div class="pl-count">34 songs</div></div>
+      </a>
+    </div>
+  </div>
+  <div class="pl-section">
+    <div class="pl-section-title">👥 User-Created</div>
+    <div class="pl-grid">
+      <a href="#" class="pl-card">
+        <div class="pl-cover" style="background:linear-gradient(135deg,#10b981,#0ea5e9);">🌊</div>
+        <div class="pl-info"><div class="pl-name">Study Session</div><div class="pl-sub">by @musicfan_alex · Focus beats</div><div class="pl-count">22 songs</div></div>
+      </a>
+      <a href="#" class="pl-card">
+        <div class="pl-cover" style="background:linear-gradient(135deg,#f97316,#a855f7);">🔥</div>
+        <div class="pl-info"><div class="pl-name">Gym Motivation</div><div class="pl-sub">by @ryanriffs · Max energy</div><div class="pl-count">18 songs</div></div>
+      </a>
+      <a href="#" class="pl-card">
+        <div class="pl-cover" style="background:linear-gradient(135deg,#fbbf24,#f87171);">🎉</div>
+        <div class="pl-info"><div class="pl-name">Party Starters</div><div class="pl-sub">by @jenna_tunes · Get it going</div><div class="pl-count">25 songs</div></div>
+      </a>
+      <a href="community.html" class="pl-card">
+        <div class="pl-cover" style="background:var(--surface2); border-bottom:1px solid var(--border);">＋</div>
+        <div class="pl-info"><div class="pl-name">Create Your Own</div><div class="pl-sub">Join the community to share playlists</div><div class="pl-count">Join Now →</div></div>
+      </a>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand"><span class="logo">Soundwave</span><p>Your hub for discovering music, artists, and the stories behind the songs.</p></div>
+      <div class="footer-links">
+        <div class="footer-col"><span class="footer-col-title">Explore</span><a href="discover.html">Discover</a><a href="genres.html">Genres</a><a href="artists.html">Artists</a><a href="playlists.html">Playlists</a></div>
+        <div class="footer-col"><span class="footer-col-title">Learn</span><a href="news.html">News</a><a href="reviews.html">Reviews</a><a href="history.html">History</a></div>
+        <div class="footer-col"><span class="footer-col-title">Connect</span><a href="community.html">Community</a><a href="contact.html">Contact</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Soundwave · Dylan Cotner · DE Web Design</span><span>Built with HTML &amp; CSS</span></div>
+  </footer>
+</body>
+</html>
