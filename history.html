@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music History — Soundwave</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero {
+      padding: 160px 48px 80px;
+      background: linear-gradient(135deg, #0a0a0f 60%, #13131c);
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero .eyebrow-mono { margin-bottom: 12px; }
+    .page-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 9vw, 7rem);
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+    .page-hero p { color: var(--muted); max-width: 560px; font-size: 1.05rem; }
+
+    .history-content { padding: 80px 48px; }
+
+    .era-section {
+      margin-bottom: 80px;
+      padding-bottom: 80px;
+      border-bottom: 1px solid var(--border);
+    }
+    .era-section:last-of-type { border-bottom: none; }
+
+    .era-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .era-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .era-intro {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 680px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    /* ── TABLE ── */
+    .history-table-wrapper {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1.5px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    thead {
+      background: var(--surface2);
+    }
+
+    thead th {
+      padding: 16px 20px;
+      text-align: left;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition);
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--surface2); }
+
+    tbody td {
+      padding: 16px 20px;
+      color: var(--text);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    tbody td:first-child {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--accent);
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    .decade-badge {
+      display: inline-block;
+      background: rgba(232,255,71,0.1);
+      border: 1px solid rgba(232,255,71,0.25);
+      border-radius: 100px;
+      padding: 2px 10px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .song-example {
+      display: inline-block;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Soundwave</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="discover.html">Discover</a></li>
+      <li><a href="genres.html">Genres</a></li>
+      <li><a href="artists.html">Artists</a></li>
+      <li><a href="playlists.html">Playlists</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="history.html" class="active">History</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="eyebrow-mono">Origins · Evolution · Famous Eras</p>
+    <h1>Music History</h1>
+    <p>Music didn't appear out of nowhere. Every genre you love has roots, a story, and a moment when everything changed. Explore the evolution of sound from the 1920s to today.</p>
+  </div>
+
+  <div class="history-content">
+
+    <!-- ── ORIGINS ── -->
+    <div class="era-section" id="origins">
+      <div class="era-label">Origins</div>
+      <h2 class="era-title">Where It All Began</h2>
+      <p class="era-intro">Modern popular music traces its roots to the African American musical traditions of the American South — blues, gospel, and jazz — which fused African rhythmic traditions with European harmonies. These foundations would eventually give birth to every popular genre that followed.</p>
+
+      <div class="history-table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Era</th>
+              <th>Genre / Movement</th>
+              <th>Key Artists</th>
+              <th>Example Song</th>
+              <th>Significance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1920s</td>
+              <td>Jazz &amp; Blues</td>
+              <td>Louis Armstrong, Bessie Smith, Robert Johnson</td>
+              <td><span class="song-example">"St. Louis Blues" (1914)</span></td>
+              <td>The foundation of all modern American popular music. Improvisation, soulful expression, and the blues scale would influence every genre that followed.</td>
+            </tr>
+            <tr>
+              <td>1930s–40s</td>
+              <td>Swing &amp; Big Band</td>
+              <td>Duke Ellington, Benny Goodman, Glenn Miller</td>
+              <td><span class="song-example">"In the Mood" (1939)</span></td>
+              <td>Jazz evolved into big band swing, becoming America's most popular dance music and filling ballrooms nationwide.</td>
+            </tr>
+            <tr>
+              <td>1950s</td>
+              <td>Rock &amp; Roll</td>
+              <td>Chuck Berry, Elvis Presley, Little Richard, Buddy Holly</td>
+              <td><span class="song-example">"Johnny B. Goode" (1958)</span></td>
+              <td>The fusion of blues, R&amp;B, and country created rock and roll — a youth culture explosion that transformed society and challenged racial barriers.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── EVOLUTION ── -->
+    <div class="era-section" id="evolution">
+      <div class="era-label">Evolution</div>
+      <h2 class="era-title">How Genres Grew &amp; Changed</h2>
+      <p class="era-intro">From the British Invasion of the 1960s to the digital revolution of the 2000s, music has constantly reinvented itself. Each decade brought new technology, new politics, and new sounds that pushed music into uncharted territory.</p>
+
+      <div class="history-table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Decade</th>
+              <th>Defining Genre(s)</th>
+              <th>Landmark Artists</th>
+              <th>Iconic Song</th>
+              <th>What Changed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1960s</td>
+              <td>Rock, Folk, Soul, Psychedelic</td>
+              <td>The Beatles, Bob Dylan, Aretha Franklin, Jimi Hendrix</td>
+              <td><span class="song-example">"Like a Rolling Stone" (1965)</span></td>
+              <td>The British Invasion brought rock global. Folk music became political protest. Psychedelia expanded what a song could sound and mean.</td>
+            </tr>
+            <tr>
+              <td>1970s</td>
+              <td>Disco, Funk, Punk, Classic Rock</td>
+              <td>Led Zeppelin, David Bowie, Donna Summer, The Ramones</td>
+              <td><span class="song-example">"Stayin' Alive" (1977)</span></td>
+              <td>Disco defined nightlife culture. Punk pushed back against excess with raw three-chord aggression. Classic rock became arena spectacle.</td>
+            </tr>
+            <tr>
+              <td>1980s</td>
+              <td>New Wave, Synth-Pop, Heavy Metal, Early Hip-Hop</td>
+              <td>Michael Jackson, Madonna, Prince, Run-DMC</td>
+              <td><span class="song-example">"Thriller" (1982)</span></td>
+              <td>MTV changed everything — music became visual. Synthesizers created new electronic textures. Hip-hop was born in New York.</td>
+            </tr>
+            <tr>
+              <td>1990s</td>
+              <td>Grunge, Alternative, R&amp;B, Hip-Hop Golden Era</td>
+              <td>Nirvana, Tupac, Biggie, Mariah Carey, TLC</td>
+              <td><span class="song-example">"Smells Like Teen Spirit" (1991)</span></td>
+              <td>Grunge killed hair metal overnight. Hip-hop's golden era produced the most critically acclaimed rap records ever. R&amp;B dominated radio.</td>
+            </tr>
+            <tr>
+              <td>2000s</td>
+              <td>Pop-Punk, Neo-Soul, Emo, Crunk, Indie Rock</td>
+              <td>Beyoncé, Eminem, The Strokes, Kanye West, Amy Winehouse</td>
+              <td><span class="song-example">"Hey Ya!" (2003)</span></td>
+              <td>The internet began disrupting the music industry. iTunes changed how people bought music. MySpace launched countless indie careers.</td>
+            </tr>
+            <tr>
+              <td>2010s</td>
+              <td>EDM, Trap, Indie Pop, K-Pop</td>
+              <td>Adele, Kendrick Lamar, Taylor Swift, BTS, Frank Ocean</td>
+              <td><span class="song-example">"HUMBLE." (2017)</span></td>
+              <td>Streaming replaced downloads. Spotify and Apple Music made entire catalogs instantly accessible. SoundCloud launched underground rap careers.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── FAMOUS ERAS ── -->
+    <div class="era-section" id="famous-eras">
+      <div class="era-label">Famous Eras</div>
+      <h2 class="era-title">Defining Moments in Music</h2>
+      <p class="era-intro">Some moments in music history are so significant they mark a before and after. These are the eras, events, and albums that didn't just change music — they changed culture.</p>
+
+      <div class="history-table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Event / Era</th>
+              <th>Why It Matters</th>
+              <th>Legacy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1964</td>
+              <td>The Beatles Land in America</td>
+              <td>73 million Americans watched The Beatles on The Ed Sullivan Show, sparking the British Invasion and changing what it meant to be a pop star.</td>
+              <td>Established the blueprint for global pop superstardom and the album as an artistic statement.</td>
+            </tr>
+            <tr>
+              <td>1969</td>
+              <td>Woodstock Festival</td>
+              <td>400,000 people gathered in upstate New York for a defining moment of the counterculture movement, with performances from Jimi Hendrix, Janis Joplin, and more.</td>
+              <td>Proved that music could unite massive communities and defined festival culture for decades.</td>
+            </tr>
+            <tr>
+              <td>1979</td>
+              <td>"Rapper's Delight" — First Hip-Hop Hit</td>
+              <td>The Sugarhill Gang released the first rap song to reach the mainstream pop charts, bringing a New York underground movement to national attention.</td>
+              <td>Launched hip-hop into the mainstream, setting up the world's now-dominant music genre.</td>
+            </tr>
+            <tr>
+              <td>1991</td>
+              <td>Nevermind by Nirvana</td>
+              <td>Knocked Michael Jackson off the Billboard #1 spot and made alternative rock a commercial force, ending the dominance of hair metal overnight.</td>
+              <td>Showed the world that underground, authentically raw music could achieve massive success without compromise.</td>
+            </tr>
+            <tr>
+              <td>2001</td>
+              <td>iTunes Launches</td>
+              <td>Apple's digital music store let users buy individual songs for $0.99, fatally disrupting the traditional album-sale model of the music industry.</td>
+              <td>Set the stage for streaming, which completely transformed how artists earn money and how listeners engage with music.</td>
+            </tr>
+            <tr>
+              <td>2015</td>
+              <td>Streaming Overtakes Downloads</td>
+              <td>For the first time, streaming revenue surpassed digital download revenue in the U.S., marking the full arrival of the subscription-based music economy.</td>
+              <td>Democratized music distribution but also sparked ongoing debates about fair pay for artists.</td>
+            </tr>
+            <tr>
+              <td>2020s</td>
+              <td>Genre Fluidity Era</td>
+              <td>Artists like Olivia Rodrigo, Tyler the Creator, and Bad Bunny reject genre labels, blending influences freely as TikTok replaces radio as music's tastemaker.</td>
+              <td>The very idea of a "genre" has become more fluid than ever, with individual songs and playlists replacing albums as the primary unit of listening.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">Soundwave</span>
+        <p>Your hub for discovering music, artists, and the stories behind the songs.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <span class="footer-col-title">Explore</span>
+          <a href="discover.html">Discover</a>
+          <a href="genres.html">Genres</a>
+          <a href="artists.html">Artists</a>
+          <a href="playlists.html">Playlists</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Learn</span>
+          <a href="news.html">News</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="history.html">History</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Connect</span>
+          <a href="community.html">Community</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Soundwave · Dylan Cotner · DE Web Design</span>
+      <span>Built with HTML &amp; CSS</span>
+    </div>
+  </footer>
+
+</body>
+</html>

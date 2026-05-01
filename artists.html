@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artists — Soundwave</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero {
+      padding: 160px 48px 80px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero .eyebrow-mono { margin-bottom: 12px; }
+    .page-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 9vw, 7rem);
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+    .page-hero p { color: var(--muted); max-width: 500px; font-size: 1.05rem; }
+
+    .artists-full-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      padding: 80px 48px;
+    }
+
+    .artist-profile-card {
+      border-radius: var(--radius);
+      border: 1.5px solid var(--border);
+      overflow: hidden;
+      background: var(--surface);
+      transition: transform var(--transition), border-color var(--transition);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .artist-profile-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .artist-header {
+      height: 100px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 20px 12px;
+    }
+    .artist-initials {
+      position: absolute;
+      bottom: -24px;
+      left: 20px;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      color: rgba(0,0,0,0.75);
+      border: 3px solid var(--surface);
+    }
+
+    .artist-body { padding: 36px 20px 20px; }
+    .artist-body-name {
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+    .artist-body-genre {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .artist-body-bio {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .artist-top-songs-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .artist-songs-list { display: flex; flex-direction: column; gap: 6px; }
+    .mini-song {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    .mini-song:last-child { border-bottom: none; }
+    .mini-song-title { font-weight: 600; }
+    .mini-song-dur {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .artist-link-btn {
+      display: inline-block;
+      margin-top: 16px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      transition: opacity var(--transition);
+    }
+    .artist-link-btn:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Soundwave</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="discover.html">Discover</a></li>
+      <li><a href="genres.html">Genres</a></li>
+      <li><a href="artists.html" class="active">Artists</a></li>
+      <li><a href="playlists.html">Playlists</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="eyebrow-mono">The people behind the music</p>
+    <h1>Artists</h1>
+    <p>Explore artist profiles — bios, top songs, albums, and more. Discover someone new or learn more about your favorites.</p>
+  </div>
+
+  <div class="artists-full-grid">
+
+    <div class="artist-profile-card" id="artist1">
+      <div class="artist-header" style="background:linear-gradient(135deg,#ff4f91,#ffa347);">
+        <div class="artist-initials" style="background:linear-gradient(135deg,#ff4f91,#ffa347);">SC</div>
+      </div>
+      <div class="artist-body">
+        <div class="artist-body-name">Sabrina Carpenter</div>
+        <div class="artist-body-genre">Pop</div>
+        <p class="artist-body-bio">Pennsylvania-born singer-songwriter who rose through Disney before breaking into mainstream pop stardom. Her 2024 album "Short n' Sweet" made her one of the year's biggest artists.</p>
+        <div class="artist-top-songs-label">Top Songs</div>
+        <div class="artist-songs-list">
+          <div class="mini-song"><span class="mini-song-title">Espresso</span><span class="mini-song-dur">2:55</span></div>
+          <div class="mini-song"><span class="mini-song-title">Please Please Please</span><span class="mini-song-dur">3:06</span></div>
+          <div class="mini-song"><span class="mini-song-title">Feather</span><span class="mini-song-dur">2:53</span></div>
+        </div>
+        <span class="artist-link-btn">View Full Profile →</span>
+      </div>
+    </div>
+
+    <div class="artist-profile-card" id="artist2">
+      <div class="artist-header" style="background:linear-gradient(135deg,#4faaff,#a855f7);">
+        <div class="artist-initials" style="background:linear-gradient(135deg,#4faaff,#a855f7);">KL</div>
+      </div>
+      <div class="artist-body">
+        <div class="artist-body-name">Kendrick Lamar</div>
+        <div class="artist-body-genre">Hip-Hop</div>
+        <p class="artist-body-bio">Compton-raised rapper and Pulitzer Prize winner widely considered one of the greatest lyricists of all time. His concept albums challenge social norms and redefine what rap can achieve.</p>
+        <div class="artist-top-songs-label">Top Songs</div>
+        <div class="artist-songs-list">
+          <div class="mini-song"><span class="mini-song-title">Not Like Us</span><span class="mini-song-dur">4:34</span></div>
+          <div class="mini-song"><span class="mini-song-title">HUMBLE.</span><span class="mini-song-dur">2:57</span></div>
+          <div class="mini-song"><span class="mini-song-title">Alright</span><span class="mini-song-dur">3:39</span></div>
+        </div>
+        <span class="artist-link-btn">View Full Profile →</span>
+      </div>
+    </div>
+
+    <div class="artist-profile-card" id="artist3">
+      <div class="artist-header" style="background:linear-gradient(135deg,#e8ff47,#4faaff);">
+        <div class="artist-initials" style="background:linear-gradient(135deg,#e8ff47,#4faaff);">CR</div>
+      </div>
+      <div class="artist-body">
+        <div class="artist-body-name">Chappell Roan</div>
+        <div class="artist-body-genre">Pop / Indie</div>
+        <p class="artist-body-bio">Missouri-born pop star known for theatrical performances, camp aesthetics, and deeply personal songwriting. Her 2023 debut "The Rise and Fall of a Midwest Princess" became a pop landmark.</p>
+        <div class="artist-top-songs-label">Top Songs</div>
+        <div class="artist-songs-list">
+          <div class="mini-song"><span class="mini-song-title">Good Luck, Babe!</span><span class="mini-song-dur">3:39</span></div>
+          <div class="mini-song"><span class="mini-song-title">Pink Pony Club</span><span class="mini-song-dur">4:07</span></div>
+          <div class="mini-song"><span class="mini-song-title">HOT TO GO!</span><span class="mini-song-dur">3:03</span></div>
+        </div>
+        <span class="artist-link-btn">View Full Profile →</span>
+      </div>
+    </div>
+
+    <div class="artist-profile-card" id="artist4">
+      <div class="artist-header" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">
+        <div class="artist-initials" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">NK</div>
+      </div>
+      <div class="artist-body">
+        <div class="artist-body-name">Noah Kahan</div>
+        <div class="artist-body-genre">Folk / Indie</div>
+        <p class="artist-body-bio">Vermont-born folk-pop singer-songwriter whose 2023 album "Stick Season" turned regional New England melancholy into a worldwide phenomenon through deeply relatable storytelling.</p>
+        <div class="artist-top-songs-label">Top Songs</div>
+        <div class="artist-songs-list">
+          <div class="mini-song"><span class="mini-song-title">Stick Season</span><span class="mini-song-dur">3:44</span></div>
+          <div class="mini-song"><span class="mini-song-title">Dial Drunk</span><span class="mini-song-dur">3:59</span></div>
+          <div class="mini-song"><span class="mini-song-title">Homesick</span><span class="mini-song-dur">4:03</span></div>
+        </div>
+        <span class="artist-link-btn">View Full Profile →</span>
+      </div>
+    </div>
+
+    <div class="artist-profile-card" id="artist5">
+      <div class="artist-header" style="background:linear-gradient(135deg,#f97316,#fbbf24);">
+        <div class="artist-initials" style="background:linear-gradient(135deg,#f97316,#fbbf24);">BE</div>
+      </div>
+      <div class="artist-body">
+        <div class="artist-body-name">Billie Eilish</div>
+        <div class="artist-body-genre">Indie Pop / Alt</div>
+        <p class="artist-body-bio">Los Angeles native who became the youngest artist to win all four main Grammy categories. Her whispered, intimate sound redefined what mainstream pop could look and feel like.</p>
+        <div class="artist-top-songs-label">Top Songs</div>
+        <div class="artist-songs-list">
+          <div class="mini-song"><span class="mini-song-title">Birds of a Feather</span><span class="mini-song-dur">3:30</span></div>
+          <div class="mini-song"><span class="mini-song-title">bad guy</span><span class="mini-song-dur">3:14</span></div>
+          <div class="mini-song"><span class="mini-song-title">Lovely</span><span class="mini-song-dur">3:19</span></div>
+        </div>
+        <span class="artist-link-btn">View Full Profile →</span>
+      </div>
+    </div>
+
+    <div class="artist-profile-card" id="artist6">
+      <div class="artist-header" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);">
+        <div class="artist-initials" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);">SZ</div>
+      </div>
+      <div class="artist-body">
+        <div class="artist-body-name">SZA</div>
+        <div class="artist-body-genre">R&amp;B / Neo-Soul</div>
+        <p class="artist-body-bio">New Jersey-born singer who blends R&amp;B, alternative, and hip-hop into vulnerable, genre-bending soul music. "SOS" became one of the best-selling albums of 2023.</p>
+        <div class="artist-top-songs-label">Top Songs</div>
+        <div class="artist-songs-list">
+          <div class="mini-song"><span class="mini-song-title">Kill Bill</span><span class="mini-song-dur">2:33</span></div>
+          <div class="mini-song"><span class="mini-song-title">Snooze</span><span class="mini-song-dur">3:34</span></div>
+          <div class="mini-song"><span class="mini-song-title">Good Days</span><span class="mini-song-dur">4:39</span></div>
+        </div>
+        <span class="artist-link-btn">View Full Profile →</span>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">Soundwave</span>
+        <p>Your hub for discovering music, artists, and the stories behind the songs.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <span class="footer-col-title">Explore</span>
+          <a href="discover.html">Discover</a>
+          <a href="genres.html">Genres</a>
+          <a href="artists.html">Artists</a>
+          <a href="playlists.html">Playlists</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Learn</span>
+          <a href="news.html">News</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="history.html">History</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Connect</span>
+          <a href="community.html">Community</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Soundwave · Dylan Cotner · DE Web Design</span>
+      <span>Built with HTML &amp; CSS</span>
+    </div>
+  </footer>
+
+</body>
+</html>
