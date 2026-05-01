@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genres — Soundwave</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero {
+      padding: 160px 48px 80px;
+      background: linear-gradient(135deg, #0a0a0f 60%, #13131c);
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero .eyebrow-mono { margin-bottom: 12px; }
+    .page-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 9vw, 7rem);
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+    .page-hero p { color: var(--muted); max-width: 500px; font-size: 1.05rem; }
+
+    .genre-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      padding: 80px 48px;
+    }
+
+    .genre-detail-card {
+      border-radius: var(--radius);
+      border: 1.5px solid var(--border);
+      overflow: hidden;
+      transition: transform var(--transition), border-color var(--transition);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .genre-detail-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .genre-banner {
+      height: 120px;
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+      position: relative;
+    }
+    .genre-banner-emoji {
+      font-size: 3rem;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .genre-banner-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.9);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+
+    .genre-detail-body { padding: 20px; background: var(--surface); }
+    .genre-detail-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.55; margin-bottom: 14px; }
+    .genre-artists-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .genre-artists-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+    .pill {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Soundwave</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="discover.html">Discover</a></li>
+      <li><a href="genres.html" class="active">Genres</a></li>
+      <li><a href="artists.html">Artists</a></li>
+      <li><a href="playlists.html">Playlists</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="eyebrow-mono">Every sound, every style</p>
+    <h1>Genres</h1>
+    <p>Dive deep into the music that moves you. From chart-topping pop to underground rap, explore every corner of the musical world.</p>
+  </div>
+
+  <div class="genre-detail-grid">
+
+    <a href="#pop" class="genre-detail-card" id="pop">
+      <div class="genre-banner" style="background:linear-gradient(135deg,#ff4f91,#ffa347);">
+        <span class="genre-banner-name">Pop</span>
+        <span class="genre-banner-emoji">🎤</span>
+      </div>
+      <div class="genre-detail-body">
+        <p class="genre-detail-desc">Catchy melodies, polished production, and mass appeal define pop music. From the British Invasion to today's streaming era, pop has always reflected the cultural moment.</p>
+        <p class="genre-artists-label">Key Artists</p>
+        <div class="genre-artists-pills">
+          <span class="pill">Taylor Swift</span>
+          <span class="pill">Sabrina Carpenter</span>
+          <span class="pill">Dua Lipa</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="#rap" class="genre-detail-card" id="rap">
+      <div class="genre-banner" style="background:linear-gradient(135deg,#7c3aed,#4faaff);">
+        <span class="genre-banner-name">Rap</span>
+        <span class="genre-banner-emoji">🎧</span>
+      </div>
+      <div class="genre-detail-body">
+        <p class="genre-detail-desc">Born in the Bronx in the 1970s, hip-hop and rap have become the world's most dominant genre, blending lyrical storytelling with beats, samples, and cultural commentary.</p>
+        <p class="genre-artists-label">Key Artists</p>
+        <div class="genre-artists-pills">
+          <span class="pill">Kendrick Lamar</span>
+          <span class="pill">Drake</span>
+          <span class="pill">Tyler the Creator</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="#rock" class="genre-detail-card" id="rock">
+      <div class="genre-banner" style="background:linear-gradient(135deg,#f97316,#dc2626);">
+        <span class="genre-banner-name">Rock</span>
+        <span class="genre-banner-emoji">🎸</span>
+      </div>
+      <div class="genre-detail-body">
+        <p class="genre-detail-desc">Guitar-driven and often rebellious, rock spans classic rock, punk, metal, indie, and beyond. A genre that never truly goes away — it just evolves.</p>
+        <p class="genre-artists-label">Key Artists</p>
+        <div class="genre-artists-pills">
+          <span class="pill">The Beatles</span>
+          <span class="pill">Nirvana</span>
+          <span class="pill">Arctic Monkeys</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="#rnb" class="genre-detail-card" id="rnb">
+      <div class="genre-banner" style="background:linear-gradient(135deg,#4faaff,#818cf8);">
+        <span class="genre-banner-name">R&amp;B</span>
+        <span class="genre-banner-emoji">🎹</span>
+      </div>
+      <div class="genre-detail-body">
+        <p class="genre-detail-desc">Rooted in soul and gospel, R&amp;B (Rhythm and Blues) is defined by smooth vocals, emotional depth, and groove-heavy production. It's the sound of vulnerability.</p>
+        <p class="genre-artists-label">Key Artists</p>
+        <div class="genre-artists-pills">
+          <span class="pill">SZA</span>
+          <span class="pill">Frank Ocean</span>
+          <span class="pill">The Weeknd</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="#edm" class="genre-detail-card" id="edm">
+      <div class="genre-banner" style="background:linear-gradient(135deg,#e8ff47,#06b6d4);">
+        <span class="genre-banner-name">EDM</span>
+        <span class="genre-banner-emoji">🎛️</span>
+      </div>
+      <div class="genre-detail-body">
+        <p class="genre-detail-desc">Electronic Dance Music takes you from intimate clubs to massive festival stages. House, techno, dubstep, trance — it's the pulse of the night.</p>
+        <p class="genre-artists-label">Key Artists</p>
+        <div class="genre-artists-pills">
+          <span class="pill">Calvin Harris</span>
+          <span class="pill">Skrillex</span>
+          <span class="pill">Daft Punk</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="#jazz" class="genre-detail-card" id="jazz">
+      <div class="genre-banner" style="background:linear-gradient(135deg,#f59e0b,#78350f);">
+        <span class="genre-banner-name">Jazz</span>
+        <span class="genre-banner-emoji">🎷</span>
+      </div>
+      <div class="genre-detail-body">
+        <p class="genre-detail-desc">America's greatest art form, jazz is built on improvisation, complexity, and expression. From New Orleans to bebop to fusion, jazz always finds new territory.</p>
+        <p class="genre-artists-label">Key Artists</p>
+        <div class="genre-artists-pills">
+          <span class="pill">Miles Davis</span>
+          <span class="pill">John Coltrane</span>
+          <span class="pill">Herbie Hancock</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="#country" class="genre-detail-card" id="country">
+      <div class="genre-banner" style="background:linear-gradient(135deg,#84cc16,#ca8a04);">
+        <span class="genre-banner-name">Country</span>
+        <span class="genre-banner-emoji">🪕</span>
+      </div>
+      <div class="genre-detail-body">
+        <p class="genre-detail-desc">Rooted in folk, blues, and Appalachian music, country tells stories of heartache, hometown pride, and the open road. Modern country blends pop and hip-hop influences.</p>
+        <p class="genre-artists-label">Key Artists</p>
+        <div class="genre-artists-pills">
+          <span class="pill">Morgan Wallen</span>
+          <span class="pill">Zach Bryan</span>
+          <span class="pill">Dolly Parton</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="#classical" class="genre-detail-card" id="classical">
+      <div class="genre-banner" style="background:linear-gradient(135deg,#94a3b8,#475569);">
+        <span class="genre-banner-name">Classical</span>
+        <span class="genre-banner-emoji">🎻</span>
+      </div>
+      <div class="genre-detail-body">
+        <p class="genre-detail-desc">Spanning centuries, classical music encompasses orchestral, chamber, opera, and solo works from composers whose influence echoes through all modern music.</p>
+        <p class="genre-artists-label">Key Composers</p>
+        <div class="genre-artists-pills">
+          <span class="pill">Beethoven</span>
+          <span class="pill">Mozart</span>
+          <span class="pill">Bach</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">Soundwave</span>
+        <p>Your hub for discovering music, artists, and the stories behind the songs.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <span class="footer-col-title">Explore</span>
+          <a href="discover.html">Discover</a>
+          <a href="genres.html">Genres</a>
+          <a href="artists.html">Artists</a>
+          <a href="playlists.html">Playlists</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Learn</span>
+          <a href="news.html">News</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="history.html">History</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Connect</span>
+          <a href="community.html">Community</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Soundwave · Dylan Cotner · DE Web Design</span>
+      <span>Built with HTML &amp; CSS</span>
+    </div>
+  </footer>
+
+</body>
+</html>

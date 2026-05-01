@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Soundwave</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero {
+      padding: 160px 48px 80px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero .eyebrow-mono { margin-bottom: 12px; }
+    .page-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 9vw, 7rem);
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+    .page-hero p { color: var(--muted); max-width: 500px; font-size: 1.05rem; }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      padding: 80px 48px;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .contact-info p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .contact-options { display: flex; flex-direction: column; gap: 14px; }
+    .contact-option {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      transition: border-color var(--transition);
+      text-decoration: none;
+      color: inherit;
+    }
+    .contact-option:hover { border-color: rgba(255,255,255,0.2); }
+    .contact-option-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .contact-option-text { display: flex; flex-direction: column; gap: 2px; }
+    .contact-option-title { font-weight: 700; font-size: 0.95rem; }
+    .contact-option-sub { font-size: 0.82rem; color: var(--muted); }
+
+    /* ── FORM ── */
+    .form-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+    }
+    .form-card h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      background: var(--surface2);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      width: 100%;
+      outline: none;
+      transition: border-color var(--transition);
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+    }
+    input::placeholder,
+    textarea::placeholder { color: var(--muted); font-size: 0.9rem; }
+
+    select option { background: var(--surface2); color: var(--text); }
+
+    textarea { min-height: 130px; resize: vertical; line-height: 1.6; }
+
+    .form-submit {
+      display: inline-block;
+      background: var(--accent);
+      color: #0a0a0f;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background var(--transition);
+      width: 100%;
+      text-align: center;
+    }
+    .form-submit:hover { background: #d4eb30; }
+
+    /* ── NEWSLETTER ── */
+    .newsletter-section {
+      padding: 0 48px 80px;
+    }
+    .newsletter-card {
+      background: linear-gradient(135deg, #13131c, #1c1c2e);
+      border: 1.5px solid rgba(232,255,71,0.2);
+      border-radius: var(--radius);
+      padding: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .newsletter-text h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .newsletter-text p { color: var(--muted); font-size: 0.95rem; max-width: 380px; }
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+      align-items: center;
+    }
+    .newsletter-form input[type="email"] {
+      width: 260px;
+      padding: 12px 18px;
+    }
+    .newsletter-submit {
+      background: var(--accent);
+      color: #0a0a0f;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 12px 26px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      white-space: nowrap;
+      transition: background var(--transition);
+    }
+    .newsletter-submit:hover { background: #d4eb30; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Soundwave</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="discover.html">Discover</a></li>
+      <li><a href="genres.html">Genres</a></li>
+      <li><a href="artists.html">Artists</a></li>
+      <li><a href="playlists.html">Playlists</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="contact.html" class="nav-cta active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="eyebrow-mono">Get in touch</p>
+    <h1>Contact &amp; Feedback</h1>
+    <p>Have a suggestion, found an error, or just want to share what music you're loving? We'd love to hear from you.</p>
+  </div>
+
+  <div class="contact-layout">
+
+    <div class="contact-info">
+      <h2>How to Reach Us</h2>
+      <p>Whether you want to submit a review, suggest a new artist profile, report something, or just say hello — use the form or one of the options below.</p>
+      <div class="contact-options">
+        <span class="contact-option">
+          <span class="contact-option-icon">✉️</span>
+          <div class="contact-option-text">
+            <span class="contact-option-title">General Feedback</span>
+            <span class="contact-option-sub">Use the form to share thoughts or suggestions</span>
+          </div>
+        </span>
+        <span class="contact-option">
+          <span class="contact-option-icon">🎵</span>
+          <div class="contact-option-text">
+            <span class="contact-option-title">Submit an Artist</span>
+            <span class="contact-option-sub">Know someone we should feature? Let us know</span>
+          </div>
+        </span>
+        <span class="contact-option">
+          <span class="contact-option-icon">📝</span>
+          <div class="contact-option-text">
+            <span class="contact-option-title">Write a Review</span>
+            <span class="contact-option-sub">Submit your own album or song review</span>
+          </div>
+        </span>
+        <span class="contact-option">
+          <span class="contact-option-icon">🐛</span>
+          <div class="contact-option-text">
+            <span class="contact-option-title">Report an Issue</span>
+            <span class="contact-option-sub">Found something broken or inaccurate?</span>
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h2>Send Us a Message</h2>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Alex Rivera" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option value="">Select a topic…</option>
+            <option value="feedback">General Feedback</option>
+            <option value="artist">Artist Suggestion</option>
+            <option value="review">Submit a Review</option>
+            <option value="bug">Report an Issue</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us what's on your mind…" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- ── NEWSLETTER ── -->
+  <div class="newsletter-section" id="newsletter">
+    <div class="newsletter-card">
+      <div class="newsletter-text">
+        <h2>Stay in the Loop</h2>
+        <p>Get weekly music news, new artist spotlights, and curated playlists delivered straight to your inbox.</p>
+      </div>
+      <form class="newsletter-form" action="#" method="post">
+        <input type="email" name="newsletter_email" placeholder="Enter your email…" required />
+        <button type="submit" class="newsletter-submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">Soundwave</span>
+        <p>Your hub for discovering music, artists, and the stories behind the songs.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <span class="footer-col-title">Explore</span>
+          <a href="discover.html">Discover</a>
+          <a href="genres.html">Genres</a>
+          <a href="artists.html">Artists</a>
+          <a href="playlists.html">Playlists</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Learn</span>
+          <a href="news.html">News</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="history.html">History</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Connect</span>
+          <a href="community.html">Community</a>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html#newsletter">Newsletter</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Soundwave · Dylan Cotner · DE Web Design</span>
+      <span>Built with HTML &amp; CSS</span>
+    </div>
+  </footer>
+
+</body>
+</html>

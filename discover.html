@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover — Soundwave</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero {
+      padding: 160px 48px 80px;
+      background: linear-gradient(135deg, #0a0a0f 60%, #13131c);
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero .eyebrow-mono { margin-bottom: 12px; }
+    .page-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 9vw, 7rem);
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+      margin-bottom: 20px;
+    }
+    .page-hero p { color: var(--muted); max-width: 500px; font-size: 1.05rem; }
+
+    .discover-tabs {
+      display: flex;
+      gap: 8px;
+      padding: 32px 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 10px 20px;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      border: 1px solid transparent;
+      border-bottom: none;
+      transition: color var(--transition), background var(--transition);
+    }
+    .tab-link:hover, .tab-link.active {
+      color: var(--accent);
+      background: var(--surface);
+      border-color: var(--border);
+    }
+
+    .discover-section { padding: 60px 48px; }
+    .discover-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .discover-section h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .song-list { display: flex; flex-direction: column; gap: 4px; }
+    .song-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 14px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      transition: background var(--transition), border-color var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .song-row:hover {
+      background: var(--surface);
+      border-color: var(--border);
+    }
+    .song-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      width: 24px;
+      text-align: right;
+    }
+    .song-cover {
+      width: 44px; height: 44px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .song-info { flex: 1; }
+    .song-title { font-weight: 600; font-size: 0.95rem; }
+    .song-artist { font-size: 0.82rem; color: var(--muted); }
+    .song-genre {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: rgba(232,255,71,0.08);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+    .song-duration {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Soundwave</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="discover.html" class="active">Discover</a></li>
+      <li><a href="genres.html">Genres</a></li>
+      <li><a href="artists.html">Artists</a></li>
+      <li><a href="playlists.html">Playlists</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="eyebrow-mono">Find your sound</p>
+    <h1>Discover</h1>
+    <p>Trending hits, brand new drops, and music handpicked just for you.</p>
+  </div>
+
+  <div class="discover-tabs">
+    <span class="tab-link active">🔥 Trending</span>
+    <a href="#new" class="tab-link">✨ New Music</a>
+    <a href="#recommended" class="tab-link">⭐ Recommended</a>
+  </div>
+
+  <div class="discover-section">
+    <h2>🔥 Trending Right Now</h2>
+    <div class="song-list">
+      <a href="#" class="song-row">
+        <span class="song-num">1</span>
+        <div class="song-cover" style="background:linear-gradient(135deg,#ff4f91,#ffa347);"></div>
+        <div class="song-info">
+          <div class="song-title">Espresso</div>
+          <div class="song-artist">Sabrina Carpenter</div>
+        </div>
+        <span class="song-genre">Pop</span>
+        <span class="song-duration">2:55</span>
+      </a>
+      <a href="#" class="song-row">
+        <span class="song-num">2</span>
+        <div class="song-cover" style="background:linear-gradient(135deg,#4faaff,#a855f7);"></div>
+        <div class="song-info">
+          <div class="song-title">Not Like Us</div>
+          <div class="song-artist">Kendrick Lamar</div>
+        </div>
+        <span class="song-genre">Hip-Hop</span>
+        <span class="song-duration">4:34</span>
+      </a>
+      <a href="#" class="song-row">
+        <span class="song-num">3</span>
+        <div class="song-cover" style="background:linear-gradient(135deg,#e8ff47,#4faaff);"></div>
+        <div class="song-info">
+          <div class="song-title">Good Luck, Babe!</div>
+          <div class="song-artist">Chappell Roan</div>
+        </div>
+        <span class="song-genre">Pop</span>
+        <span class="song-duration">3:39</span>
+      </a>
+      <a href="#" class="song-row">
+        <span class="song-num">4</span>
+        <div class="song-cover" style="background:linear-gradient(135deg,#43e97b,#38f9d7);"></div>
+        <div class="song-info">
+          <div class="song-title">Stick Season</div>
+          <div class="song-artist">Noah Kahan</div>
+        </div>
+        <span class="song-genre">Folk</span>
+        <span class="song-duration">3:44</span>
+      </a>
+      <a href="#" class="song-row">
+        <span class="song-num">5</span>
+        <div class="song-cover" style="background:linear-gradient(135deg,#f97316,#fbbf24);"></div>
+        <div class="song-info">
+          <div class="song-title">Birds of a Feather</div>
+          <div class="song-artist">Billie Eilish</div>
+        </div>
+        <span class="song-genre">Indie Pop</span>
+        <span class="song-duration">3:30</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="discover-section section-dark" id="new">
+    <h2>✨ New Music</h2>
+    <div class="song-list">
+      <a href="#" class="song-row">
+        <span class="song-num">1</span>
+        <div class="song-cover" style="background:linear-gradient(135deg,#a855f7,#ec4899);"></div>
+        <div class="song-info">
+          <div class="song-title">Pink Pony Club</div>
+          <div class="song-artist">Chappell Roan</div>
+        </div>
+        <span class="song-genre">Pop</span>
+        <span class="song-duration">4:07</span>
+      </a>
+      <a href="#" class="song-row">
+        <span class="song-num">2</span>
+        <div class="song-cover" style="background:linear-gradient(135deg,#06b6d4,#3b82f6);"></div>
+        <div class="song-info">
+          <div class="song-title">Levii's Jeans</div>
+          <div class="song-artist">Beyoncé ft. Post Malone</div>
+        </div>
+        <span class="song-genre">Country Pop</span>
+        <span class="song-duration">4:45</span>
+      </a>
+      <a href="#" class="song-row">
+        <span class="song-num">3</span>
+        <div class="song-cover" style="background:linear-gradient(135deg,#10b981,#a3e635);"></div>
+        <div class="song-info">
+          <div class="song-title">Fortnight</div>
+          <div class="song-artist">Taylor Swift ft. Post Malone</div>
+        </div>
+        <span class="song-genre">Indie Pop</span>
+        <span class="song-duration">3:48</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">Soundwave</span>
+        <p>Your hub for discovering music, artists, and the stories behind the songs.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <span class="footer-col-title">Explore</span>
+          <a href="discover.html">Discover</a>
+          <a href="genres.html">Genres</a>
+          <a href="artists.html">Artists</a>
+          <a href="playlists.html">Playlists</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Learn</span>
+          <a href="news.html">News</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="history.html">History</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Connect</span>
+          <a href="community.html">Community</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Soundwave · Dylan Cotner · DE Web Design</span>
+      <span>Built with HTML &amp; CSS</span>
+    </div>
+  </footer>
+
+</body>
+</html>
