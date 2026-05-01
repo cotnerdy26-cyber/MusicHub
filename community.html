@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community — Soundwave</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --surface-2: #161616;
+      --border: rgba(255,255,255,0.09);
+      --border-hover: rgba(255,255,255,0.2);
+      --accent: #E8FF47;
+      --accent-dim: rgba(232,255,71,0.1);
+      --accent-border: rgba(232,255,71,0.25);
+      --muted: rgba(255,255,255,0.45);
+      --text: #f0f0f0;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --transition: 0.2s ease;
+    }
+
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 1rem; line-height: 1.6; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; border-bottom: 1px solid var(--border); background: rgba(10,10,10,0.85); backdrop-filter: blur(12px); }
+    .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.08em; color: var(--accent); text-decoration: none; }
+    .nav-links { list-style: none; display: flex; gap: 28px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.85rem; font-weight: 400; transition: color var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a.nav-cta { color: var(--accent); border: 1px solid var(--accent-border); padding: 6px 16px; border-radius: 100px; }
+    .nav-links a.nav-cta:hover { background: var(--accent-dim); }
+
+    /* HERO */
+    .page-hero { padding: 160px 48px 80px; border-bottom: 1px solid var(--border); }
+    .eyebrow-mono { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem,9vw,7rem); letter-spacing: 0.04em; line-height: 0.95; margin-bottom: 20px; }
+    .page-hero p { color: var(--muted); max-width: 500px; font-size: 1.05rem; }
+
+    /* STATS BAR */
+    .stats-bar { display: flex; gap: 0; border-bottom: 1px solid var(--border); }
+    .stat-item { flex: 1; padding: 28px 48px; border-right: 1px solid var(--border); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; letter-spacing: 0.04em; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+    .stat-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+    /* MAIN LAYOUT */
+    .community-body { padding: 80px 48px; display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: start; }
+
+    /* THREAD LIST */
+    .section-label { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.06em; margin-bottom: 20px; }
+    .thread-filters { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+    .filter-btn { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all var(--transition); }
+    .filter-btn:hover { border-color: var(--border-hover); color: var(--text); }
+    .filter-btn.active { border-color: var(--accent-border); background: var(--accent-dim); color: var(--accent); }
+
+    .threads { display: flex; flex-direction: column; gap: 16px; }
+    .thread-card { border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: 28px; text-decoration: none; color: inherit; display: block; transition: border-color var(--transition), transform var(--transition); }
+    .thread-card:hover { transform: translateY(-3px); border-color: var(--border-hover); }
+    .thread-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
+    .thread-tag { display: inline-block; font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-border); padding: 3px 10px; border-radius: 100px; flex-shrink: 0; }
+    .thread-card h3 { font-size: 1.05rem; font-weight: 600; line-height: 1.35; margin-bottom: 8px; }
+    .thread-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 16px; }
+    .thread-footer { display: flex; align-items: center; gap: 20px; }
+    .thread-author { display: flex; align-items: center; gap: 8px; }
+    .avatar { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 0.6rem; font-weight: 700; flex-shrink: 0; }
+    .av-green { background: rgba(60,210,120,0.15); color: #3cd278; }
+    .av-purple { background: rgba(160,100,255,0.15); color: #a064ff; }
+    .av-blue { background: rgba(80,160,255,0.15); color: #50a0ff; }
+    .av-pink { background: rgba(255,80,160,0.15); color: #ff50a0; }
+    .av-amber { background: rgba(255,180,50,0.15); color: #ffb432; }
+    .av-coral { background: rgba(255,100,80,0.15); color: #ff6450; }
+    .author-name { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted); }
+    .thread-stats { display: flex; gap: 16px; margin-left: auto; }
+    .thread-stat { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+    .thread-stat svg { opacity: 0.5; }
+
+    /* PINNED */
+    .thread-card.pinned { border-color: var(--accent-border); background: rgba(232,255,71,0.03); }
+    .pin-badge { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); opacity: 0.7; }
+
+    /* SIDEBAR */
+    .sidebar { display: flex; flex-direction: column; gap: 28px; }
+
+    /* NEW POST BOX */
+    .new-post-box { border: 1.5px solid var(--accent-border); background: rgba(232,255,71,0.04); border-radius: var(--radius); padding: 28px; }
+    .new-post-box h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .new-post-box p { font-size: 0.85rem; color: var(--muted); margin-bottom: 20px; line-height: 1.5; }
+    .btn-accent { display: inline-block; background: var(--accent); color: #0a0a0a; font-family: 'Space Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; padding: 12px 24px; border-radius: 100px; text-decoration: none; border: none; cursor: pointer; transition: opacity var(--transition), transform var(--transition); width: 100%; text-align: center; }
+    .btn-accent:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* TRENDING TOPICS */
+    .sidebar-box { border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+    .sidebar-box-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.06em; padding: 18px 22px 14px; border-bottom: 1px solid var(--border); }
+    .topic-list { list-style: none; }
+    .topic-item { display: flex; align-items: center; justify-content: space-between; padding: 13px 22px; border-bottom: 1px solid var(--border); font-size: 0.88rem; transition: background var(--transition); cursor: pointer; }
+    .topic-item:last-child { border-bottom: none; }
+    .topic-item:hover { background: var(--surface-2); }
+    .topic-name { display: flex; align-items: center; gap: 8px; }
+    .topic-hash { color: var(--accent); font-family: 'Space Mono', monospace; font-size: 0.8rem; }
+    .topic-count { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--muted); }
+
+    /* ACTIVE MEMBERS */
+    .member-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 18px 22px; }
+    .member-cell { display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; }
+    .member-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: 700; border: 1.5px solid var(--border); transition: border-color var(--transition); }
+    .member-cell:hover .member-avatar { border-color: var(--accent-border); }
+    .member-name { font-size: 0.68rem; color: var(--muted); text-align: center; line-height: 1.2; }
+
+    /* UPCOMING EVENTS */
+    .event-list { list-style: none; }
+    .event-item { display: flex; gap: 16px; padding: 14px 22px; border-bottom: 1px solid var(--border); align-items: flex-start; }
+    .event-item:last-child { border-bottom: none; }
+    .event-date-block { flex-shrink: 0; width: 40px; text-align: center; }
+    .event-month { font-family: 'Space Mono', monospace; font-size: 0.6rem; text-transform: uppercase; color: var(--accent); letter-spacing: 0.08em; }
+    .event-day { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; line-height: 1; color: var(--text); }
+    .event-info h5 { font-size: 0.88rem; font-weight: 600; margin-bottom: 3px; line-height: 1.3; }
+    .event-info span { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--muted); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 60px 48px 32px; }
+    .footer-top { display: flex; gap: 64px; margin-bottom: 48px; }
+    .footer-brand { max-width: 240px; }
+    .footer-brand p { color: var(--muted); font-size: 0.85rem; margin-top: 10px; line-height: 1.6; }
+    .footer-links { display: flex; gap: 48px; flex: 1; justify-content: flex-end; }
+    .footer-col { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col-title { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .footer-col a { text-decoration: none; color: rgba(255,255,255,0.6); font-size: 0.88rem; transition: color var(--transition); }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid var(--border); font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Soundwave</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="discover.html">Discover</a></li>
+      <li><a href="genres.html">Genres</a></li>
+      <li><a href="artists.html">Artists</a></li>
+      <li><a href="playlists.html">Playlists</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="community.html" class="active">Community</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="eyebrow-mono">Discussions · Events · Members</p>
+    <h1>Community</h1>
+    <p>Connect with fellow music lovers. Share your takes, discover new sounds, and join the conversation.</p>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">14.2K</div>
+      <div class="stat-label">Members</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3,810</div>
+      <div class="stat-label">Discussions</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">89K</div>
+      <div class="stat-label">Replies</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">240</div>
+      <div class="stat-label">Online Now</div>
+    </div>
+  </div>
+
+  <div class="community-body">
+
+    <!-- THREADS -->
+    <div class="main-threads">
+      <div class="section-label">Forum Discussions</div>
+
+      <div class="thread-filters">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Hot</button>
+        <button class="filter-btn">New Releases</button>
+        <button class="filter-btn">Recommendations</button>
+        <button class="filter-btn">Industry</button>
+        <button class="filter-btn">Vinyl & Gear</button>
+        <button class="filter-btn">Events</button>
+      </div>
+
+      <div class="threads">
+
+        <!-- Pinned -->
+        <a href="#" class="thread-card pinned">
+          <div class="thread-top">
+            <div class="thread-tag">Pinned</div>
+            <span class="pin-badge">&#9679; Pinned</span>
+          </div>
+          <h3>Welcome to Soundwave Community — Read Before Posting</h3>
+          <p>New here? This thread covers the community guidelines, how to flair your posts, and how to get the most out of your membership. All skill levels welcome.</p>
+          <div class="thread-footer">
+            <div class="thread-author">
+              <div class="avatar av-green">SW</div>
+              <span class="author-name">Soundwave Team</span>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-stat">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                312
+              </span>
+              <span class="thread-stat">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                1.4K
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="thread-card">
+          <div class="thread-top">
+            <div class="thread-tag">New Releases</div>
+          </div>
+          <h3>Kendrick's surprise drop — best album of 2026 so far or overhyped?</h3>
+          <p>Genuinely didn't see this coming. The production on track 4 alone is worth the whole listen. But I've seen takes saying it's more of the same. What do you all think?</p>
+          <div class="thread-footer">
+            <div class="thread-author">
+              <div class="avatar av-purple">JR</div>
+              <span class="author-name">jrbeats_</span>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-stat">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                88
+              </span>
+              <span class="thread-stat">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                642
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="thread-card">
+          <div class="thread-top">
+            <div class="thread-tag">Recommendations</div>
+          </div>
+          <h3>Looking for deep cuts — shoegaze and post-rock hybrids</h3>
+          <p>Been on a massive Slowdive and Mogwai binge and I need more. Specifically looking for that wall-of-sound feeling but with actual song structure. Drop your recs below.</p>
+          <div class="thread-footer">
+            <div class="thread-author">
+              <div class="avatar av-blue">ML</div>
+              <span class="author-name">moonlightlistener</span>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-stat">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                57
+              </span>
+              <span class="thread-stat">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                290
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="thread-card">
+          <div class="thread-top">
+            <div class="thread-tag">Industry</div>
+          </div>
+          <h3>Streaming royalties debate — should we boycott major platforms?</h3>
+          <p>With the new artist coalition gaining steam, I'm genuinely torn. I rely on Spotify for discovery but the per-stream rates are insulting. Is there a better alternative we should be pushing?</p>
+          <div class="thread-footer">
+            <div class="thread-author">
+              <div class="avatar av-pink">VN</div>
+              <span class="author-name">vinyl_nerd_99</span>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-stat">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                143
+              </span>
+              <span class="thread-stat">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                817
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="thread-card">
+          <div class="thread-top">
+            <div class="thread-tag">Vinyl &amp; Gear</div>
+          </div>
+          <h3>Best turntables under $400 in 2026 — updated buyer's guide</h3>
+          <p>I've tested 11 decks over the past few months. The Audio-Technica LP120XBT still holds up but there are two new contenders worth talking about. Full breakdown inside.</p>
+          <div class="thread-footer">
+            <div class="thread-author">
+              <div class="avatar av-amber">TK</div>
+              <span class="author-name">turntable_king</span>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-stat">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                74
+              </span>
+              <span class="thread-stat">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                388
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="thread-card">
+          <div class="thread-top">
+            <div class="thread-tag">Events</div>
+          </div>
+          <h3>Who's going to Coachella weekend 2? Let's meet up</h3>
+          <p>Organizing a small Soundwave community meetup on the Saturday. We'll be near the Outdoor stage around 6pm. Drop a reply if you want to link — the more the merrier.</p>
+          <div class="thread-footer">
+            <div class="thread-author">
+              <div class="avatar av-coral">DX</div>
+              <span class="author-name">desertrave_dx</span>
+            </div>
+            <div class="thread-stats">
+              <span class="thread-stat">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                39
+              </span>
+              <span class="thread-stat">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                196
+              </span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="new-post-box">
+        <h3>Start a Discussion</h3>
+        <p>Have a hot take, a question, or a deep cut recommendation? The community wants to hear it.</p>
+        <a href="#" class="btn-accent">New Post</a>
+      </div>
+
+      <!-- TRENDING -->
+      <div class="sidebar-box">
+        <div class="sidebar-box-title">Trending Topics</div>
+        <ul class="topic-list">
+          <li class="topic-item">
+            <span class="topic-name"><span class="topic-hash">#</span>KendrickDrop</span>
+            <span class="topic-count">412 posts</span>
+          </li>
+          <li class="topic-item">
+            <span class="topic-name"><span class="topic-hash">#</span>Coachella2026</span>
+            <span class="topic-count">388 posts</span>
+          </li>
+          <li class="topic-item">
+            <span class="topic-name"><span class="topic-hash">#</span>VinylRevival</span>
+            <span class="topic-count">274 posts</span>
+          </li>
+          <li class="topic-item">
+            <span class="topic-name"><span class="topic-hash">#</span>StreamingFair</span>
+            <span class="topic-count">231 posts</span>
+          </li>
+          <li class="topic-item">
+            <span class="topic-name"><span class="topic-hash">#</span>Hyperpop2026</span>
+            <span class="topic-count">188 posts</span>
+          </li>
+          <li class="topic-item">
+            <span class="topic-name"><span class="topic-hash">#</span>BedroomPop</span>
+            <span class="topic-count">143 posts</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ACTIVE MEMBERS -->
+      <div class="sidebar-box">
+        <div class="sidebar-box-title">Active Members</div>
+        <div class="member-grid">
+          <div class="member-cell">
+            <div class="member-avatar av-purple">JR</div>
+            <span class="member-name">jrbeats_</span>
+          </div>
+          <div class="member-cell">
+            <div class="member-avatar av-blue">ML</div>
+            <span class="member-name">moonlight</span>
+          </div>
+          <div class="member-cell">
+            <div class="member-avatar av-green">TF</div>
+            <span class="member-name">track_fwd</span>
+          </div>
+          <div class="member-cell">
+            <div class="member-avatar av-pink">VN</div>
+            <span class="member-name">vinyl_99</span>
+          </div>
+          <div class="member-cell">
+            <div class="member-avatar av-amber">TK</div>
+            <span class="member-name">tt_king</span>
+          </div>
+          <div class="member-cell">
+            <div class="member-avatar av-coral">DX</div>
+            <span class="member-name">desert_dx</span>
+          </div>
+          <div class="member-cell">
+            <div class="member-avatar av-blue">SH</div>
+            <span class="member-name">sighwave</span>
+          </div>
+          <div class="member-cell">
+            <div class="member-avatar av-green">RZ</div>
+            <span class="member-name">ravezon</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- UPCOMING EVENTS -->
+      <div class="sidebar-box">
+        <div class="sidebar-box-title">Upcoming Events</div>
+        <ul class="event-list">
+          <li class="event-item">
+            <div class="event-date-block">
+              <div class="event-month">Apr</div>
+              <div class="event-day">11</div>
+            </div>
+            <div class="event-info">
+              <h5>Coachella Weekend 1</h5>
+              <span>Indio, CA · Festival</span>
+            </div>
+          </li>
+          <li class="event-item">
+            <div class="event-date-block">
+              <div class="event-month">Apr</div>
+              <div class="event-day">18</div>
+            </div>
+            <div class="event-info">
+              <h5>Coachella Weekend 2</h5>
+              <span>Indio, CA · Festival</span>
+            </div>
+          </li>
+          <li class="event-item">
+            <div class="event-date-block">
+              <div class="event-month">May</div>
+              <div class="event-day">3</div>
+            </div>
+            <div class="event-info">
+              <h5>Soundwave Community Listening Party</h5>
+              <span>Online · Members Only</span>
+            </div>
+          </li>
+          <li class="event-item">
+            <div class="event-date-block">
+              <div class="event-month">May</div>
+              <div class="event-day">17</div>
+            </div>
+            <div class="event-info">
+              <h5>Taylor Swift — Eras Tour Final Chapter</h5>
+              <span>Multiple Cities · Tour</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </aside>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">Soundwave</span>
+        <p>Your hub for discovering music, artists, and the stories behind the songs.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <span class="footer-col-title">Explore</span>
+          <a href="discover.html">Discover</a>
+          <a href="genres.html">Genres</a>
+          <a href="artists.html">Artists</a>
+          <a href="playlists.html">Playlists</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Learn</span>
+          <a href="news.html">News</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="history.html">History</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Connect</span>
+          <a href="community.html">Community</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Soundwave · Dylan Cotner · DE Web Design</span>
+      <span>Built with HTML &amp; CSS</span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
